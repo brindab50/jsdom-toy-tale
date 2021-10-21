@@ -1,7 +1,5 @@
 let addToy = false;
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
@@ -56,30 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
-// grab the add toy elemet 
-// create a event listener to the add toy button
-// grab to toy form container 
-// create a function that adds toys and takes in an argument 
-// of the toy data 
-//create a post request for that new toy
-// once jasonfied 
-// run the render toy function and give it the returned 
-// javascript data as an argument
 
-// 
-debugger
 
-addBtn.addEventListener('click', () => {
-  addToy = !addToy
-  if(addToy){
-    toyForm.style.display.block
-    toyForm.addEventListener('submit', event => {
-      event.preventDefault()
-      addToys(event.target)
-    })
-
-  }
-})
 
 function addToys(toy_data){
   fetch('http://localhost:3000/toys', {
@@ -102,6 +78,18 @@ function addToys(toy_data){
 }
 
 
+addBtn.addEventListener('click', () => {
+  addToy = !addToy
+  if(addToy){
+    toyForm.style.display.block
+    toyForm.addEventListener('submit', event => {
+      event.preventDefault()
+      addToys(event.target)
+    })
+  }else {
+    toyForm.style.display = 'none'
+  }
+})
 
 
 
